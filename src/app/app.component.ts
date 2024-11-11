@@ -1,13 +1,36 @@
+import { NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+
+type TCardFace = 'front' | 'back';
+type TCardMode = 'basic' | 'advanced' | 'premium';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [NgSwitch, NgSwitchCase, NgSwitchDefault, ReactiveFormsModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = '24.are-you-using-angular-ng-switch-yet';
+  public activeFace: TCardFace = 'front';
+  public selectedBackContent: FormControl<TCardMode | null> =
+    new FormControl<TCardMode>('premium');
+
+  ngOnInit(): void {
+    switch ((Math.random() * 10) % 2 === 0) {
+      case true:
+        console.log('true');
+        break;
+      // @ts-ignore
+      case false:
+        console.log('false');
+      default:
+        console.log('hahaha');
+    }
+  }
+
+  public onCardFaceChange(face: TCardFace): void {
+    this.activeFace = face;
+  }
 }
