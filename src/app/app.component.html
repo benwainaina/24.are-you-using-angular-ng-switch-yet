@@ -99,21 +99,3 @@
     </div>
   </div>
 </div>
-
-<div>
-  <div [ngSwitch]="activeFace">
-    <div *ngSwitchCase="'front'"></div>
-    <div *ngSwitchCase="'back'" [ngSwitch]="selectedBackContent.value">
-      <div *ngSwitchCase="'basic'"></div>
-      <div *ngSwitchCase="'advanced'"></div>
-      <div *ngSwitchCase="'premium'"></div>
-      <div *ngSwitchDefault></div>
-    </div>
-  </div>
-
-  <div [ngSwitch]="activeFace">
-    <div *ngSwitchCase="'front'"></div>
-    <div *ngSwitchCase="'back'"></div>
-    <div></div>
-  </div>
-</div>

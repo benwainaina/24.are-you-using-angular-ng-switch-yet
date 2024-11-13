@@ -18,7 +18,7 @@ export class AppComponent {
     new FormControl<TCardMode>('premium');
 
   ngOnInit(): void {
-    switch ((Math.random() * 10) % 2 === 0) {
+    switch (Math.round(Math.random() * 10) % 2 === 0) {
       case true:
         console.log('true');
         break;
@@ -26,7 +26,7 @@ export class AppComponent {
       case false:
         console.log('false');
       default:
-        console.log('hahaha');
+        console.log('default');
     }
   }
 
